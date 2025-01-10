@@ -1,5 +1,5 @@
 
-// Your web app's Firebase configuration
+
 import { initializeApp } from "firebase/app";
 const firebaseConfig = {
     apiKey: "AIzaSyCNeTKsDXzBKaX0yHyuD24776zwlBPgfhQ",
@@ -11,11 +11,11 @@ const firebaseConfig = {
     measurementId: "G-NDD1PB9L48"
 };
 
-  // Initialize Firebase
+ 
   const app = firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   
-  // Setup reCAPTCHA
+
   const setupReCAPTCHA = () => {
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
       "recaptcha-container",
@@ -24,7 +24,7 @@ const firebaseConfig = {
     recaptchaVerifier.render();
   };
   
-  // Send OTP
+ 
   const sendOTP = (phoneNumber) => {
     setupReCAPTCHA();
     const appVerifier = window.recaptchaVerifier;
@@ -40,7 +40,7 @@ const firebaseConfig = {
       });
   };
   
-  // Verify OTP
+ 
   const verifyOTP = (otp) => {
     window.confirmationResult.confirm(otp)
       .then((result) => {
@@ -52,7 +52,7 @@ const firebaseConfig = {
       });
   };
   
-  // Event Listeners
+ 
   document.getElementById("send-otp").addEventListener("click", () => {
     const phoneNumber = document.getElementById("phone-number").value;
     sendOTP(phoneNumber);
